@@ -2,7 +2,7 @@
 scalar Date
 
 type Query {
-  posts(paginationInput: PaginationInput): PostsPaginationResult!
+  posts(paginationInput: PaginationInput): PostsConnection!
 }
 
 input PaginationInput {
@@ -19,7 +19,7 @@ type PageInfo {
   hasNextPage: Boolean!
 }
 
-type PostsPaginationResult {
+type PostsConnection {
   count: Int!
   edges: [PostEdge!]!
   pageInfo: PageInfo!
