@@ -15,7 +15,7 @@ From root directory, run the following:
 
 ```
 yarn install          # install dependencies
-docker-compose up     # deploy MySQL database with seed schema
+docker-compose up -d  # deploy MySQL database container with seed schema
 prisma generate       # generate the prisma-client
 yarn dev              # run the development server with nodemon
 ```
