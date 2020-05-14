@@ -4,14 +4,11 @@ exports.fromCursorHash = (string) =>
   Buffer.from(string, 'base64').toString('ascii');
 
 exports.paginate = async (
-  {
-    first,
-    last,
-    before,
-    after
-  }, 
+  { first, last, before, after }, 
   context,
-  model
+  model,
+  select,
+  where = {}
 ) => {
   const { utils, prisma } = context
 
@@ -30,6 +27,10 @@ exports.paginate = async (
     last
   }
   
+  if (select) {
+    query['select'] = select
+  }
+
   if (after) {
     query.where['createdAt'] = { lt: new Date(utils.fromCursorHash(after)) }
   } else if (before) {

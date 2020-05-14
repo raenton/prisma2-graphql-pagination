@@ -7,7 +7,12 @@ const prisma = new PrismaClient()
 const resolvers = {
   Query: {
     posts: async (_parent, args, context) => {
-      return context.utils.paginate(args.paginationInput, context, 'post')
+      return context.utils.paginate(args.paginationInput, context, 'post', {
+        id: true,
+        title: true,
+        content: true,
+        createdAt: true
+      }, {})
     }
   }
 }
