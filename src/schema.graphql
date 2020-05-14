@@ -1,0 +1,38 @@
+# address resolution for this scalar type
+scalar Date
+
+type Query {
+  posts(paginationInput: PaginationInput): PostsPaginationResult!
+}
+
+input PaginationInput {
+  first: Int
+  last: Int
+  before: String
+  after: String
+}
+
+type PageInfo {
+  startCursor: String!
+  endCursor: String!
+  hasPrevPage: Boolean!
+  hasNextPage: Boolean!
+}
+
+type PostsPaginationResult {
+  count: Int!
+  edges: [PostEdge!]!
+  pageInfo: PageInfo!
+}
+
+type Post {
+  id: ID!
+  title: String
+  content: String
+  createdAt: Date!
+}
+
+type PostEdge {
+  cursor: String!
+  node: Post!
+}

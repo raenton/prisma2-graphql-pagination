@@ -1,0 +1,17 @@
+{
+  "name": "prisma2-graphql-pagination",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon --inspect=12345 src/index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.0.0-beta.5",
+    "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.0.0-beta.5"
+  }
+}
